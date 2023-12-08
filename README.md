@@ -5,5 +5,5 @@ Tool to reshape an $N\times M$ matrix to an $n\times m$ matrix, somehow. The poi
 
 It seems to work pretty well:
 
-![aeb7b9c0-9730-48c2-9bdf-d7e6e2613f75](https://github.com/magnushelliesen/matrix-mapper/assets/104299371/b16764ed-3563-4a07-9e1d-d4f63ce65cbc)
-![1b5bdc05-0f1e-415b-b8ff-679899ff85e3](https://github.com/magnushelliesen/matrix-mapper/assets/104299371/3070a903-b8ae-4e3d-8cd6-505178e3f74f)
+![f555b1d6-956a-411f-a7da-ab5df8754f98](https://github.com/magnushelliesen/matrix-mapper/assets/104299371/e451f696-f835-4cf7-8c21-b5c096b9e917)
+![587864cf-4346-4efc-9f9b-c59069f3472c](https://github.com/magnushelliesen/matrix-mapper/assets/104299371/ed6e8e8c-467e-4e9e-8246-c615a55b29a7)
