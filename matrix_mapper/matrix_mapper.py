@@ -23,7 +23,7 @@ def matrix_mapper(X: np.ndarray, n: int, m: int):
     # Return P'XQ
     return (
         np.repeat(np.eye(n), N_div_n, axis=0).T
-        .dot(X[remove_t:-remove_b, remove_l:-remove_r])
+        .dot(X[remove_t:N-remove_b, remove_l:M-remove_r])
         .dot(np.repeat(np.eye(m), M_div_m, axis=0))
         /(N_div_n*M_div_m)
     )
