@@ -8,18 +8,22 @@ def matrix_mapper(X: np.ndarray, n: int, m: int):
     N, M = X.shape
     
     # Get number of rows and columns to remove
-    N_mod_n = N % n
-    M_mod_m = M % m
+    N_div_n, N_mod_n = divmod(N, n)
+    M_div_m, M_mod_m = divmod(M, m)
 
     # Determine how many to the left/right/top/bottom
-    N_mod_n_div2, N_mod_n_mod2 = divmod(N_mod_n, 2)
-    M_mod_m_div2, M_mod_m_mod2 = divmod(M_mod_m, 2)
+    N_mod_n_div_2, N_mod_n_mod_2 = divmod(N_mod_n, 2)
+    M_mod_m_div_2, M_mod_m_mod_2 = divmod(M_mod_m, 2)
 
-    remove_t = N_mod_n_div2
-    remove_b = N_mod_n_div2+N_mod_n_mod2
-    remove_l = M_mod_m_div2
-    remove_r = M_mod_m_div2+M_mod_m_mod2
+    remove_t = N_mod_n_div_2
+    remove_b = N_mod_n_div_2+N_mod_n_mod_2
+    remove_l = M_mod_m_div_2
+    remove_r = M_mod_m_div_2+M_mod_m_mod_2
 
-    # Pretty sure i can do kindof a quadratic, Q'XQ --> x
-    
-    return X[remove_t:-remove_b, remove_l:-remove_r]
+    # Return P'XQ
+    return (
+        np.repeat(np.eye(n), N_div_n, axis=0).T
+        .dot(X[remove_t:-remove_b, remove_l:-remove_r])
+        .dot(np.repeat(np.eye(m), M_div_m, axis=0))
+        /(N_div_n*M_div_m)
+    )
